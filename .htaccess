@@ -3,3 +3,5 @@ RewriteEngine On
 RewriteRule ^/?$ html/index.html [L]
 RewriteRule ^/?index?$ html/index.html [L]
 RewriteRule ^/?dsa/?$ html/dsa.html [L]
+
+Header set Cache-Control "no-cache, no-store, must-revalidate"

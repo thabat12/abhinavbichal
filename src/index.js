@@ -1,25 +1,53 @@
 import ProfileTile from "./components/ProfileTile.js";
+import NavBar from "./NavBar.js";
 
-// Create a div element
-const div = document.createElement('div');
 
-// Add TailwindCSS classes to the div
-div.className = 'w-screen h-screen bg-gray-900';
-div.innerHTML = "hello there";
+// Find the root element
+const root = document.getElementById("root");
+console.log(root);
+root.className = 'flex flex-col w-screen items-center justify-center relative';
 
-// Append the div to the root element
-document.getElementById('root').appendChild(div);
+// Fix the particles element as well
+const particles = document.createElement("div");
+particles.id = "particles-js";
+particles.className = "absolute top-0 left-0 w-full h-full";
+particles.style.zIndex = -1;
+root.appendChild(particles);
 
-console.log("hello from index.js");
-
-try {
-    console.log("step 1");
-    const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
-    document.getElementById('root').appendChild(profileTile);
-    console.log(profileTile);
-
-} catch (err) {
-    console.error(err);
+// Fix the navigation bar
+let config = {
+    name: "Abhinav Bichal",
+    navigation: [
+        {
+            name: "Home",
+            action: (e) => { console.log("home button is clicked!"); }
+        },
+        {
+            name: "Work",
+            action: (e) => {}
+        },
+        {
+            name: "Updates",
+            action: (e) => {}
+        }
+    ]
 }
 
-console.log("profile tile appended");
+const navBar = NavBar(config);
+root.appendChild(navBar);
+
+// Everything else will be a "screen" that is contained within root
+const HomeScreen = document.createElement("div");
+HomeScreen.id = "home-screen";
+HomeScreen.className = "flex flex-col items-center h-screen w-[50rem] py-[10rem]";
+const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
+HomeScreen.appendChild(profileTile);
+
+
+window.addEventListener("load", () => {
+    particlesJS.load("particles-js", "data/particles.json", function() {
+        console.log("particles-js loaded");
+    });
+});
+
+root.appendChild(HomeScreen);
