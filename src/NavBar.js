@@ -7,7 +7,7 @@
 export default function NavBar(config) {
 
     const navBarElem = document.createElement("div");
-    navBarElem.className = "flex flex-row bg-[#EDE2D0] w-[25rem] md:w-[45rem] h-[4rem] rounded-md items-center justify-between p-5 fixed top-5";
+    navBarElem.className = "flex flex-row bg-[#EDE2D0] w-[25rem] md:w-[45rem] h-[4rem] rounded-md items-center justify-between p-5 fixed top-5 z-50";
 
     // Create the name element
     const nameElem = document.createElement("p");
