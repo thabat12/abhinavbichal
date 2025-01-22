@@ -1,6 +1,6 @@
 function SkillsTile(skillsList) {
     const skillsTileElem = document.createElement('div');
-    skillsTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-2";
+    skillsTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-2 bg-clip-padding backdrop-filter backgrop-blur-2xl bg-opacity-40 bg-white";
 
     const skillsListColElem = document.createElement('div');
     skillsListColElem.className = "flex flex-col justify-start items-start space-y-2";
@@ -12,6 +12,7 @@ function SkillsTile(skillsList) {
 
     skillsList.forEach((skill) => {
         const skillEntryElem = document.createElement('div');
+        // h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100
         skillEntryElem.className = "flex flex-col justify-start items-center w-full space-y-1";
         skillEntryElem.innerHTML = `
             <!-- "python" - "advanced" -->
@@ -44,7 +45,7 @@ function SkillsTile(skillsList) {
 
 function DailyQuoteTile(quoteData) {
     const dailyQuoteTileElem = document.createElement('div');
-    dailyQuoteTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-1 col-span-1";
+    dailyQuoteTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-1 col-span-1 bg-clip-padding backdrop-filter backgrop-blur-2xl bg-opacity-40 bg-white";
 
     const dailyQuoteColElem = document.createElement('div');
     dailyQuoteColElem.className = "flex flex-col justify-start items-start space-around h-full";
@@ -71,7 +72,7 @@ function DailyQuoteTile(quoteData) {
 
 function EducationTile(educationList) {
     const educationTileElem = document.createElement('div');
-    educationTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-1 col-span-1";
+    educationTileElem.className = "rounded-md outline outline-gray-400 outline-1 p-5 row-span-1 col-span-1 bg-clip-padding backdrop-filter backgrop-blur-2xl bg-opacity-40 bg-white";
 
     const educationListColElem = document.createElement('div');
     educationListColElem.className = "flex flex-col justify-start items-start";

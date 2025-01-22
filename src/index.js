@@ -42,7 +42,7 @@ root.appendChild(navBar);
 // Everything else will be a "screen" that is contained within root
 const HomeScreen = document.createElement("div");
 HomeScreen.id = "home-screen";
-HomeScreen.className = "flex flex-col items-center h-screen w-screen md:w-[50rem] py-[10rem] space-y-5";
+HomeScreen.className = "flex flex-col items-center w-screen md:w-[50rem] pt-[10rem] space-y-5";
 const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
 HomeScreen.appendChild(profileTile);
 
@@ -201,10 +201,10 @@ const bottomBar = BottomBar(mediaData);
 HomeScreen.appendChild(bottomBar);
 
 
-// window.addEventListener("load", () => {
-//     particlesJS.load("particles-js", "data/particles.json", function() {
-//         console.log("particles-js loaded");
-//     });
-// });
+window.addEventListener("load", () => {
+    particlesJS.load("particles-js", "data/particles.json", function() {
+        console.log("particles-js loaded");
+    });
+});
 
 root.appendChild(HomeScreen);
