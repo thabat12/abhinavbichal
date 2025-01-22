@@ -2,6 +2,8 @@ import ProfileTile from "./components/ProfileTile.js";
 import NavBar from "./NavBar.js";
 import AboutMe from "./components/AboutMe.js";
 import WorkExperience from "./components/WorkExperience.js";
+import MoreStuff from "./components/MoreStuff.js";
+import BottomBar from "./components/BottomBar.js";
 
 // Find the root element
 const root = document.getElementById("root");
@@ -40,7 +42,7 @@ root.appendChild(navBar);
 // Everything else will be a "screen" that is contained within root
 const HomeScreen = document.createElement("div");
 HomeScreen.id = "home-screen";
-HomeScreen.className = "flex flex-col items-center h-screen w-[50rem] py-[10rem] space-y-5";
+HomeScreen.className = "flex flex-col items-center h-screen w-screen md:w-[50rem] py-[10rem] space-y-5";
 const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
 HomeScreen.appendChild(profileTile);
 
@@ -62,7 +64,7 @@ const experiences = [
         title: "NLP Research Assistant @ UT Austin - UT Linguistics Department",
         location: "Austin, TX",
         date: "Jun 2024 - Now",
-        description: "Accelerating the progress of medical research by enabling literature mining and document classification via Llama 3-8B. Implemented LoRA fine-tuning of models to boost BLEU score by 10%, enabling a desirable ~0.9 ROC score.",
+        description: "Accelerating the progress of medical research by enabling medical literature mining and document classification via Llama 3-8B. Implemented LoRA fine-tuning of models to boost BLEU score by 10%, enabling a desirable ~0.9 ROC score.",
         media: [
             {
                 img: "",
@@ -71,10 +73,10 @@ const experiences = [
         ],
     },
     {
-        title: "Software Engineer Intern @ Capital One",
+        title: "Founder / Developer @ BitFinance - Educational Fintech App",
         location: "Plano, TX",
-        date: "May 2023 - Aug 2023",
-        description: "Developed a Spring Boot microservice to optimize the process of sending out millions of emails to customers, resulting in a 20% reduction in email send time and a cost savings of $100,000 per year. The service is currently used by over 10,000 customers.",
+        date: "Jun 2024 - Present",
+        description: "Developing a personal finance app dedicated to teach fundamental financial concepts in an easy way. Also integrated with Plaid to enable users to track their expenses and income across thousands of institutions. Working on integrating on-device AI features for personalized insights.",
         media: [
             {
                 img: "",
@@ -83,10 +85,10 @@ const experiences = [
         ],
     },
     {
-        title: "Undergraduate Research Assistant @ UT Austin - Oden Institute for Computational Engineering and Sciences",
+        title: "Software Engineering Intern @ Capital One - IDEAL Data Pipelines Team",
         location: "Austin, TX",
-        date: "Aug 2022 - May 2023",
-        description: "Researched the effects of COVID-19 on the human brain using fMRI data. Developed a Python package to analyze and visualize large datasets, resulting in a publication in a peer-reviewed journal.",
+        date: "Jun 2023 - Aug 2023",
+        description: "Augmented the IDEAL data pipeline by implementing a microservice to analyze and predict user traffic flow. Optimized SQL queries and handled 100k+ daily transactions on the pipeline. Currently deployed into production and used by the Auto Finance team at Capital One.",
         media: [
             {
                 img: "",
@@ -100,11 +102,109 @@ const workExperience = WorkExperience(experiences);
 
 HomeScreen.appendChild(workExperience);
 
+// sum more stuff-stuff
+const moreStuffData = {
+    educationList: [
+        {
+            degree: "M.S. Computer Science",
+            institution: "The University of Texas at Austin",
+            dates: "2025-2026"
+        },
+        {
+            degree: "B.S. Computer Science",
+            institution: "The University of Texas at Austin",
+            dates: "2023-2025"
+        },
+        {
+            degree: "B.S. Computational Biology",
+            institution: "The University of Texas at Austin",
+            dates: "2021-2025"
+        }
+    ],
+    dailyQuote: {
+        quote: "Personality is that which permits a prediction of what a person will do in a given situation",
+        author: "Raymond Cattell"
+    },
+    skillsList: [
+        {
+            name: "Python",
+            level: "Advanced",
+            percentage: 90
+        },
+        {
+            name: "AWS",
+            level: "Advanced",
+            percentage: 75
+        },
+        {
+            name: "TypeScript/ JavaScript",
+            level: "Intermediate",
+            percentage: 60
+        },
+        {
+            name: "Java",
+            level: "Intermediate",
+            percentage: 50
+        },
+        {
+            name: "C/C++",
+            level: "Intermediate",
+            percentage: 50
+        },
+        {
+            name: "Docker",
+            level: "Intermediate",
+            percentage: 40
+        },
+        {
+            name: "TensorFlow/ PyTorch",
+            level: "Beginner",
+            percentage: 30
+        },
+        {
+            name: "SQL",
+            level: "Beginner",
+            percentage: 20
+        },
+    ]
+}
 
-window.addEventListener("load", () => {
-    particlesJS.load("particles-js", "data/particles.json", function() {
-        console.log("particles-js loaded");
-    });
-});
+const moreStuff = MoreStuff(moreStuffData);
+HomeScreen.appendChild(moreStuff);
+
+
+const mediaData = [
+    {
+        svg: "./assets/github-brown.svg",
+        action: () => {console.log("github icon clicked on the bottom");}
+    },
+    {
+        svg: "./assets/linkedin-brown.svg",
+        action: () => {console.log("linkedin icon clicked on the bottom");}
+    },
+    {
+        svg: "./assets/youtube-brown.svg",
+        action: () => {console.log("youtube icon clicked on the bottom");}
+    },
+    {
+        svg: "./assets/twitter-brown.svg",
+        action: () => {console.log("twitter icon clicked on the bottom");}
+    },
+    {
+        svg: "./assets/email-brown.svg",
+        action: () => {console.log("email icon clicked on the bottom");}
+    }
+];
+
+const bottomBar = BottomBar(mediaData);
+
+HomeScreen.appendChild(bottomBar);
+
+
+// window.addEventListener("load", () => {
+//     particlesJS.load("particles-js", "data/particles.json", function() {
+//         console.log("particles-js loaded");
+//     });
+// });
 
 root.appendChild(HomeScreen);
