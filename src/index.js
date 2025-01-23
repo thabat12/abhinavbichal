@@ -42,7 +42,7 @@ root.appendChild(navBar);
 // Everything else will be a "screen" that is contained within root
 const HomeScreen = document.createElement("div");
 HomeScreen.id = "home-screen";
-HomeScreen.className = "flex flex-col items-center w-full md:w-[40rem] lg:w-[60rem] pt-[10rem] space-y-5 lg:space-y-16 bg-white";
+HomeScreen.className = "flex flex-col items-center w-full md:w-[40rem] lg:w-[60rem] pt-[10rem] space-y-5 lg:space-y-16 bg-clip-padding backdrop-filter backgrop-blur-2xl bg-opacity-40 bg-white";
 const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
 HomeScreen.appendChild(profileTile);
 

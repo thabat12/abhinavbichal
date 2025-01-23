@@ -72,7 +72,7 @@ export default function WorkExperience(experiences) {
         
         // create & add the actual work experience entry
         const workExperienceElem = document.createElement("div");
-        workExperienceElem.className = "work-experience flex flex-col px-2 relative group/experience";
+        workExperienceElem.className = "work-experience flex flex-col relative group/experience";
 
         const titleElem = document.createElement("p");
         titleElem.className = "font-bold text-lg";
