@@ -7,7 +7,7 @@
 export default function NavBar(config) {
 
     const navBarElem = document.createElement("div");
-    navBarElem.className = "flex flex-row bg-[#EDE2D0] w-[90%] md:w-[45rem] h-[4rem] rounded-md items-center justify-between p-5 fixed top-5 z-50";
+    navBarElem.className = "flex flex-row bg-[#EDE2D0] w-[90%] md:w-[45rem] lg:w-[60rem] h-[4rem] rounded-md items-center justify-between p-5 fixed top-5 z-50 transition ease-linear";
 
     // Create the name element
     const nameElem = document.createElement("p");
@@ -27,6 +27,11 @@ export default function NavBar(config) {
 
     navBarElem.appendChild(nameElem);
     navBarElem.appendChild(navigationElem);
+
+    let lastScrollPos = 0;
+    window.addEventListener("scroll", () => {
+        console.log(window.scrollY);
+        lastScrollPos = window.scrollY;;    });
 
     return navBarElem;
 }

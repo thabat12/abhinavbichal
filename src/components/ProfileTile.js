@@ -21,15 +21,21 @@ export default function ProfileTile(name, imageUrl) {
                 <!-- Social Media Icons -->
                 <div class="flex flex-row items-center space-x-3 justify-center md:justify-start">
                     <div class="transition-all w-10 h-10 bg-[#876250] rounded-full hover:scale-105 flex items-center justify-center">
-                        <img src="./assets/linkedin.svg" alt="linkedin logo" class="w-5 h-5">
+                        <a href="https://www.linkedin.com/in/abhinav-bichal/" target="_blank">
+                            <img src="./assets/linkedin.svg" alt="linkedin logo" class="w-5 h-5">
+                        </a>
                     </div>
 
                     <div class="transition-all w-10 h-10 bg-[#876250] rounded-full hover:scale-105 flex items-center justify-center">
-                        <img src="./assets/github.svg" alt="github logo" class="w-6 h-6">
+                        <a href="https://github.com/thabat12" target="_blank">
+                            <img src="./assets/github.svg" alt="github logo" class="w-6 h-6">
+                        </a>
                     </div>
 
                     <div class="transition-all w-10 h-10 bg-[#876250] rounded-full hover:scale-105 flex items-center justify-center">
-                        <img src="./assets/email.svg" alt="email logo" class="w-6 h-6">
+                        <a href="mailto:abhinavbichal@gmail.com" target="_blank">
+                            <img src="./assets/email.svg" alt="email logo" class="w-6 h-6">
+                        </a>
                     </div>
                 </div>
             </div>

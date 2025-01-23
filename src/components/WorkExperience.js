@@ -54,7 +54,7 @@ export default function WorkExperience(experiences) {
     allWorkExperiencesElem.appendChild(headerElem);
 
     const allWorkExperiencesColListElem = document.createElement('div');
-    allWorkExperiencesColListElem.className = "flex flex-col";
+    allWorkExperiencesColListElem.className = "flex flex-col space-y-5";
 
     experiences.forEach((exp) => {
         console.log(`work experience title ${exp.title} created`);
@@ -89,26 +89,44 @@ export default function WorkExperience(experiences) {
         descElem.innerText = exp.description;
         workExperienceElem.appendChild(descElem);
 
-        // Now work on whatever media is included in this entry
-        const mediaContainerElem = document.createElement("div");
-        mediaContainerElem.className = "relative transition-all ease-in-out flex-row items-center space-x-4 flex h-[10rem] group-hover/experience:h-[10rem] mt-2 pb-2";
+        if (exp.media) {
+            // Now work on whatever media is included in this entry
+            const mediaContainerElem = document.createElement("div");
+            mediaContainerElem.className = "relative transition-all ease-in-out flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row items-center flex mt-4 pb-2";
 
-        const mediaEntryElems = exp.media.map((mediaElem) => {
-            const mediaEntryElem = document.createElement("div");
-            mediaEntryElem.className = "w-[15rem] h-full bg-gray-300 rounded-md relative group/media1";
-            mediaEntryElem.innerHTML = `
-                <div class="h-[40%] w-full bg-black bottom-0 absolute rounded-b-md bg-opacity-0 group-hover/media1:bg-opacity-30 transition ease-linear p-3">
-                    <p class="text-sm group-hover/media1:opacity-100 opacity-0 text-white">${mediaElem.desc}</p>
-                </div>
-            `;
-            return mediaEntryElem;
-        });
+            const mediaEntryElems = exp.media.map((mediaElem) => {
+                const mediaEntryElem = document.createElement("div");
+                mediaEntryElem.className = `w-[20rem] h-full bg-${mediaElem.background ? mediaElem.background : "black"} rounded-md relative group/media1`;
+                mediaEntryElem.innerHTML = `
+                    <img
+                        class="w-full h-[15rem] object-${mediaElem.imageFitType ? mediaElem.imageFitType: "contain"} rounded-md"
+                        src="${mediaElem.img}"></img>
+                    <div class="h-[40%] w-full bg-black bottom-0 absolute rounded-b-md bg-opacity-0 group-hover/media1:bg-opacity-40 transition ease-linear p-3">
+                        <p class="text-sm font-semibold group-hover/media1:opacity-100 opacity-0 text-white">${mediaElem.desc} ${mediaElem.url ? "(double-click)" : ""}</p>
+                    </div>
+                `;
 
-        mediaEntryElems.forEach(mediaEntryElem => {
-            mediaContainerElem.appendChild(mediaEntryElem);
-        });
+                if (mediaElem.url) {
+                    let tapped = false;
+                    mediaEntryElem.addEventListener("click", (e) => {
+                        if (!tapped) {
+                            tapped = true;
+                            setTimeout(() => {tapped = false; console.log("tapped timeout ended")}, 300); // Reset tap state after 300ms
+                        } else {
+                            window.open(mediaElem.url);
+                        }
+                    });
+                }
+                return mediaEntryElem;
+            });
 
-        workExperienceElem.appendChild(mediaContainerElem);
+            mediaEntryElems.forEach(mediaEntryElem => {
+                mediaContainerElem.appendChild(mediaEntryElem);
+            });
+
+            workExperienceElem.appendChild(mediaContainerElem);
+        }
+
         workExpEntryRowElem.appendChild(workExperienceElem);
         allWorkExperiencesColListElem.appendChild(workExpEntryRowElem);
     });
