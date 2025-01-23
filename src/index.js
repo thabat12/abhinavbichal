@@ -8,7 +8,7 @@ import BottomBar from "./components/BottomBar.js";
 // Find the root element
 const root = document.getElementById("root");
 console.log(root);
-root.className = 'flex flex-col w-screen items-center justify-center relative';
+root.className = 'flex flex-col w-full items-center justify-center relative overflow-x-hidden';
 
 // Fix the particles element as well
 const particles = document.createElement("div");
@@ -42,7 +42,7 @@ root.appendChild(navBar);
 // Everything else will be a "screen" that is contained within root
 const HomeScreen = document.createElement("div");
 HomeScreen.id = "home-screen";
-HomeScreen.className = "flex flex-col items-center w-screen md:w-[50rem] lg:w-[60rem] pt-[10rem] space-y-5 lg:space-y-16";
+HomeScreen.className = "flex flex-col items-center w-full md:w-[40rem] lg:w-[60rem] pt-[10rem] space-y-5 lg:space-y-16 bg-white";
 const profileTile = ProfileTile("Abhinav Bichal", "headshot.JPG", "bio");
 HomeScreen.appendChild(profileTile);
 
@@ -98,13 +98,13 @@ const experiences = [
                 desc: "MOW App Pages",
                 imageFitType: "cover"
             },
-            {
-                img: "./assets/mowlogo.png",
-                desc: "MOW Website Link",
-                background: "gray-300",
-                desc: "MOW Austin Website Link",
-                url: "https://www.mealsonwheelscentraltexas.org/"
-            }
+            // {
+            //     img: "./assets/mowlogo.png",
+            //     desc: "MOW Website Link",
+            //     background: "gray-300",
+            //     desc: "MOW Austin Website Link",
+            //     url: "https://www.mealsonwheelscentraltexas.org/"
+            // }
         ],
     },
     {
@@ -113,14 +113,15 @@ const experiences = [
         date: "Jun 2021 - Aug 2022",
         description: "Fostered a student-volunteer tutoring program connecting 500+ students in the DFW metroplex area to free-of-cost tutoring services. Developed the entire frontend to facilitate tutor-student matching.",
         media: [
+            // {
+            //     img: "./assets/scholasticianexample.png",
+            //     desc: "Scholastician.org Website UI"
+            // },
             {
-                img: "./assets/scholasticianexample.png",
-                desc: "Scholastician.org Website UI"
-            },
-            {
-                img: "./assets/headshotscholastician.webp",
+                img: "./assets/theseStudents.png",
                 url: "https://starlocalmedia.com/friscoenterprise/these-frisco-isd-students-want-to-level-the-sat-playing-field/article_580e5700-ec73-11ea-8611-6f6dc9357cc4.html",
-                desc: "Dallas Voyage Featured"
+                desc: "Dallas Voyage Featured",
+                background: "gray-300"
             }
         ],
     },
