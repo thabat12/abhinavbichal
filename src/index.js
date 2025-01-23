@@ -64,14 +64,14 @@ const experiences = [
         title: "NLP Research Assistant @ UT Austin - UT Linguistics Department",
         location: "Austin, TX",
         date: "Jun 2024 - Now",
-        description: "Accelerating the progress of medical research by enabling medical literature mining and document classification via Llama 3-8B. Implemented LoRA fine-tuning of models to boost BLEU score by 10%, enabling a desirable ~0.9 ROC score.",
+        description: "Accelerating the progress of medical research by enabling medical literature mining and document classification via Llama 3-8B. Implemented LoRA fine-tuning of models to boost BLEU score by 10%, enabling a desirable ~0.9 ROC score. (Pictures to come soon!)",
         media: null
     },
     {
         title: "Founder / Developer @ BitFinance - Educational Fintech App",
         location: "Plano, TX",
         date: "Jun 2024 - Present",
-        description: "Developing a personal finance app dedicated to teach fundamental financial concepts in an easy way. Also integrated with Plaid to enable users to track their expenses and income across thousands of institutions. Working on integrating on-device AI features for personalized insights.",
+        description: "Developing a personal finance app dedicated to teach fundamental financial concepts in an easy way. Also integrated with Plaid to enable users to track their expenses and income across thousands of institutions. Working on integrating on-device AI features for personalized insights. 8k+ lines of code, 6+ months of planning and research, and my biggest project yet.",
         media: [
             {
                 img: "./assets/bitfinance.png",
@@ -111,7 +111,7 @@ const experiences = [
         title: "Co-Founder @ Scholastician - React & Firebase",
         location: "DFW Area",
         date: "Jun 2021 - Aug 2022",
-        description: "Fostered a student-volunteer tutoring program connecting 500+ students in the DFW metroplex area to free-of-cost tutoring services. Developed the entire frontend platform",
+        description: "Fostered a student-volunteer tutoring program connecting 500+ students in the DFW metroplex area to free-of-cost tutoring services. Developed the entire frontend to facilitate tutor-student matching.",
         media: [
             {
                 img: "./assets/scholasticianexample.png",
@@ -204,7 +204,7 @@ HomeScreen.appendChild(moreStuff);
 const mediaData = [
     {
         svg: "./assets/github-brown.svg",
-        action: () => {console.log("github icon clicked on the bottom");}
+        action: () => {console.log("github icon clicked on the bottom"); }
     },
     {
         svg: "./assets/linkedin-brown.svg",

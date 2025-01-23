@@ -6,7 +6,7 @@ export default function BottomBar(mediaData) {
     plannedElem.className = "flex w-full flex-row items-center justify-center";
     plannedElem.innerHTML = `
         <p class="font-bold italic text-[#68594C] w-[25rem] text-center tracking-wider leading-tight text-lg">
-            thank you for visiting my website!
+            thank you for visiting my website! there's not much here yet, but stay tuned for more updates :D
         </p>
     `;
     bottomBar.appendChild(plannedElem);
