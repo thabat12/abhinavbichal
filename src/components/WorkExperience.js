@@ -45,7 +45,7 @@ const experiences = [
 
 export default function WorkExperience(experiences) {
     const allWorkExperiencesElem = document.createElement('div');
-    allWorkExperiencesElem.className = "flex flex-col space-y-2 px-2";
+    allWorkExperiencesElem.className = "flex flex-col space-y-2 md:w-[40rem]";
 
     const headerElem = document.createElement('h1');
     headerElem.className = "text-[#68594C] font-bold text-3xl md:text-2xl text-center md:text-left";
@@ -60,11 +60,11 @@ export default function WorkExperience(experiences) {
         console.log(`work experience title ${exp.title} created`);
 
         const workExpEntryRowElem = document.createElement("div");
-        workExpEntryRowElem.className = "flex flex-row relative group md:w-[40rem] space-x-2";
+        workExpEntryRowElem.className = "flex flex-row relative group w-full space-x-2";
 
         // create & add the sidebar thing
         const sideBarElem = document.createElement("div");
-        sideBarElem.className = "flex flex-col items-center relative w-14";
+        sideBarElem.className = "flex flex-col items-center relative w-[4vw]";
         sideBarElem.innerHTML = `
             <div class="bg-[#E6D8BD] h-full w-2 group-hover:w-3 mt-3 transition-all ease-linear"></div>
         `;
@@ -72,7 +72,7 @@ export default function WorkExperience(experiences) {
         
         // create & add the actual work experience entry
         const workExperienceElem = document.createElement("div");
-        workExperienceElem.className = "work-experience flex flex-col relative group/experience";
+        workExperienceElem.className = "work-experience flex flex-col px-2 relative group/experience";
 
         const titleElem = document.createElement("p");
         titleElem.className = "font-bold text-lg";
