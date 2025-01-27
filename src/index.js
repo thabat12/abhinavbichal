@@ -10,14 +10,18 @@ root.className = 'flex flex-col w-screen items-center justify-center relative ov
 // Fix the particles element as well
 const particles = document.createElement("div");
 particles.id = "particles-js";
-particles.className = "absolute top-0 left-0 w-full h-full";
+particles.className = "absolute top-0 left-0 w-screen h-full overflow-hidden";
 particles.style.zIndex = -1;
 root.appendChild(particles);
 
-window.addEventListener("load", () => {
+function loadParticles() {
     particlesJS.load("particles-js", "data/particles.json", function() {
         console.log("particles-js loaded");
     });
+}
+
+window.addEventListener("load", () => {
+    loadParticles();
 });
 
 // Basic navigation implementation

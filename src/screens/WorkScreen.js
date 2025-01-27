@@ -6,20 +6,31 @@ const projectShowcaseData = [
         title: "OrangeAI",
         desc: "Track your calorie intake with just a snap! OrangeAI is my first ever mobile app that uses ConvNets to detect food items.",
         media: {
-            src: "",
-            links: {
-                youtube: "something.com",
-                github: null
-            },
+            src: "./assets/orangeaipic.png",
+            links: [
+                {
+                    linkName: "YouTube",
+                    url: "https://www.youtube.com/watch?v=pfz5gKCE9XU"
+                },
+                {
+                    linkName: "GitHub",
+                    url: "https://github.com/thabat12/OrangeAI"
+                }
+            ],
         },
         skills: "Kotlin, TensorFlow, API, Android Development"
     },
     {
         title: "Project TetraNet",
-        desc: "Wildfire detection & mitigation using a weather balloon and AI. Presented work at the ISEF Conference.",
+        desc: "Wildfire detection & mitigation using a weather balloon and AI. Presented work at the ISEF Conference. (That's our device at the edge of space!)",
         media: {
-            links: [],
-            media: []
+            src: "./assets/tetranetpic.png",
+            links: [
+                {
+                    linkName: "GitHub",
+                    url: "https://github.com/thabat12/TetraNet"
+                }
+            ]
         },
         skills: "Embedded Systems, TensorFlow, C++, Azure"
     },
@@ -27,8 +38,17 @@ const projectShowcaseData = [
         title: "Stock Market Predictions",
         desc: "Can neural networks predict the stock market given 10 years of data? It turns out they kind of can...",
         media: {
-            links: [],
-            media: []
+            src: "./assets/stockmarket.png",
+            links: [
+                {
+                    linkName: "Notebook",
+                    url: "./stockmarketpredictions.html"
+                },
+                {
+                    linkName: "GitHub",
+                    url: "https://github.com/thabat12/Stock-Predictions"
+                }
+            ]
         },
         skills: "Keras, TensorFlow, Machine Learning, Data Visualization"
     },
@@ -36,8 +56,13 @@ const projectShowcaseData = [
         title: "Texas Datathon 2022",
         desc: "Predicting broader market trends with the power of random forest networks! Winner of $2,000.",
         media: {
-            links: [],
-            media: []
+            src: "./assets/datathonimage.jpg",
+            links: [
+                {
+                    linkName: "My Friend's Post",
+                    url: "https://www.linkedin.com/posts/sahaschinni_machinelearning-datascience-ai-activity-7048501533423898624-er7E/"
+                }
+            ],
         },
         skills: "SciKit-Learn, Pandas, Data Analysis, Machine Learning"
     },
@@ -45,8 +70,13 @@ const projectShowcaseData = [
         title: "AWS-deploy",
         desc: "Making deployments on AWS easier with a simple CLI tool! I use this for all my projects.",
         media: {
-            links: [],
-            media: []
+            src: "./assets/awsdeploy.png",
+            links: [
+                {
+                    linkName: "GitHub",
+                    url: "https://github.com/thabat12/aws-deploy"
+                }
+            ],
         },
         skills: "SciKit-Learn, Pandas, Data Analysis, Machine Learning"
     },
@@ -54,6 +84,7 @@ const projectShowcaseData = [
         title: "PintOS",
         desc: "My implementation of a simple operating system supporting process scheduling, memory management, and file systems.",
         media: {
+            src: "./assets/pintos.png",
             links: [],
             media: []
         },
@@ -63,6 +94,7 @@ const projectShowcaseData = [
         title: "This Website v.1.0",
         desc: "And of course, what you're seeing right now! This is entirely made with raw JS, HTML, and tailwind CSS.",
         media: {
+            src: "./assets/personalwebsite.png",
             links: [],
             media: []
         },
@@ -95,34 +127,24 @@ export default function WorkScreen() {
             shadow-sm
         `;
         projectShowcaseElem.innerHTML = `
-            <div class="w-[15rem] h-[15rem] bg-gray-400 rounded-md"></div>
-            <h2 class="text-lg font-semibold">${projectData.title}</h2>
+            <div class="w-[15rem] h-[15rem] bg-gray-400 rounded-md">
+                <img src="${projectData.media.src}" class="w-full h-full object-cover rounded-md" />
+            </div>
+            <h2 class="text-lg font-semibold text-[#291F1D]">${projectData.title}</h2>
             <p class="tracking-wide">${projectData.desc}</p>
             <p>Skills: ${projectData.skills}</p>
         `;
 
         const linkClassName = "w-full text-start hover:text-[#000000] cursor-pointer underline";
 
-        if (projectData.media.links.github) {
-            // add github link to a new tab
-            const githubLink = document.createElement('a');
-            githubLink.href = projectData.media.links.github;
-            githubLink.target = "_blank";
-            githubLink.innerText = "GitHub";
-            githubLink.className = linkClassName;
-            projectShowcaseElem.appendChild(githubLink);
-
-        }
-
-        if (projectData.media.links.youtube) {
-            // add youtube link to a new tab
-            const youtubeLink = document.createElement('a');
-            youtubeLink.href = projectData.media.links.youtube;
-            youtubeLink.target = "_blank";
-            youtubeLink.innerText = "YouTube";
-            youtubeLink.className = linkClassName;
-            projectShowcaseElem.appendChild(youtubeLink);
-        }
+        projectData.media.links.forEach((link) => {
+            const linkElem = document.createElement('a');
+            linkElem.href = link.url;
+            linkElem.target = "_blank";
+            linkElem.innerText = link.linkName;
+            linkElem.className = linkClassName;
+            projectShowcaseElem.appendChild(linkElem);
+        });
 
         workGrid.appendChild(projectShowcaseElem);
     });
