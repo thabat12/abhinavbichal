@@ -8,11 +8,16 @@ console.log(root);
 root.className = 'flex flex-col w-screen items-center justify-center relative overflow-x-hidden min-h-screen';
 
 // Fix the particles element as well
+const particlesWrapper = document.createElement("div");
+particlesWrapper.className = "absolute top-0 left-0 w-screen h-full overflow-hidden";
+particlesWrapper.style.zIndex = -1;
+
 const particles = document.createElement("div");
 particles.id = "particles-js";
-particles.className = "absolute top-0 left-0 w-screen h-full overflow-hidden";
+particles.className = "absolute top-0 left-0 w-screen h-[200rem]";
 particles.style.zIndex = -1;
-root.appendChild(particles);
+particlesWrapper.appendChild(particles);
+root.appendChild(particlesWrapper);
 
 function loadParticles() {
     particlesJS.load("particles-js", "data/particles.json", function() {

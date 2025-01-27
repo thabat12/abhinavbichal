@@ -108,9 +108,9 @@ export default function WorkScreen() {
     const WorkScreen = document.createElement('div');
     WorkScreen.id = "work-screen";
     WorkScreen.className = `
-        flex flex-col w-full h-full grow md:w-[40rem] lg:w-[60rem] pt-[8rem] md:pt-[10rem]
+        flex flex-col w-full h-fit grow md:w-[40rem] lg:w-[60rem] pt-[8rem] md:pt-[10rem]
         bg-clip-padding backdrop-filter backgrop-blur-2xl bg-opacity-40
-        transition ease-linear gap-4 justify-center items-center pb-10
+        transition ease-linear gap-4 justify-center items-center pb-10 overflow-y-hidden
         `;
 
     const workGrid = document.createElement("div");
